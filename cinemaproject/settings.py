@@ -98,9 +98,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'c-db',
-        'USER':'hiro',
+        'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST':'db',
+        'HOST': os.getenv('DATABASE_HOST'),
         'PORT':'3306',
          'OPTIONS': {
             'charset': 'utf8mb4',
