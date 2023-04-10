@@ -100,7 +100,6 @@ def get_api_data8(movie_id):
 
 class IndexListView(LoginRequiredMixin,ListView):
     # 検索フォームのview
-    #(LoginRequiredMixin,)中に入ります
 
 
     def get(self, request):
@@ -131,7 +130,7 @@ class IndexListView(LoginRequiredMixin,ListView):
         })
 
 class CinemaResultView(LoginRequiredMixin,ListView):
-    #(LoginRequiredMixin,)中に入ります
+  
     def post(self, request):
 
         form = SearchForm(request.POST or None)
@@ -326,8 +325,7 @@ class MyCreateView(LoginRequiredMixin, CreateView):
         if tag == '':
             tag == None
         if MyModel.objects.filter(number=number, user=user).exists():
-            # number=numberで同じタイトルは登録できないようにしたが、それだと違うユーザーでログインし同じタイトルを登録しようとすると、登録できない不具合が起きた。
-            # その為user=userでユーザー識別も追加し、ユーザーが登録していない映画であればこの条件に合致しない。
+   
             return redirect('index')
         else:
             my_model = MyModel.objects.create(
@@ -338,7 +336,7 @@ class MyCreateView(LoginRequiredMixin, CreateView):
                     tag_obj, created = Tag.objects.get_or_create(name=t)
                     my_model.tags.add(tag_obj)
             MyList.objects.create(user=user, movie=my_model)
-            # MyModelを作ると同時にMyListを作る処理をしている=MyListに登録しとくことで、映画のモデルを軸に複数ユーザーが登録できるようにしている
+ 
             messages.success(self.request, '登録しました。')
             return redirect('list')
 
