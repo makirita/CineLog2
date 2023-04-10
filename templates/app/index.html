@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="main-contents wrapper">
+    <article>
+        
+            <h3>投稿したレビュー</h3>
+        <div class="write-button">
+            <p><a href="{% url 'top-review'%}">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_114_152" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                    <rect width="32" height="32" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_114_152)">
+                    <path d="M16 28V25.1667L23.0667 18.1L25.9 20.9333L18.8333 28H16ZM4 21.3333V18.6667H13.3333V21.3333H4ZM26.8333 20L24 17.1667L24.9667 16.2C25.2111 15.9556 25.5222 15.8333 25.9 15.8333C26.2778 15.8333 26.5889 15.9556 26.8333 16.2L27.8 17.1667C28.0444 17.4111 28.1667 17.7222 28.1667 18.1C28.1667 18.4778 28.0444 18.7889 27.8 19.0333L26.8333 20ZM4 16V13.3333H18.6667V16H4ZM4 10.6667V8H18.6667V10.6667H4Z" fill="#1C1B1F"/>
+                    </g>
+                </svg>     
+            </a></p>
+        </div>
+            <div class="timeline">
+            {% for review in reviews %}
+                <div class="review">
+                    <div class="left">
+                         <p><img src="http://image.tmdb.org/t/p/w342/{{ review.cinema.image }}"></p>
+                         <p class="title">{{ review.cinema }}</p>
+                    </div>
+                        <div class="right">    
+                             <p>{{ review.review|linebreaksbr }}</p>
+                             <p class="date">{{ review.datetime }}</p>
+                        </div>
+                </div>
+            {% endfor %}
+            </div>
+            
+    </article>
+
+    <aside>
+        <div class="search-form-000">
+            <form method="post" action="{% url 'cinema' %}"class="search-form-001">
+            {% csrf_token %}
+                <input class="input" type="text" name="title" id="id_title" placeholder="タイトルを入力">
+                <button class="btn" type="submit" aria-label="検索">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_15_70" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                        <rect width="24" height="24" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_15_70)">
+                        <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14583 15.3708 4.8875 14.1125C3.62917 12.8542 3 11.3167 3 9.5C3 7.68333 3.62917 6.14583 4.8875 4.8875C6.14583 3.62917 7.68333 3 9.5 3C11.3167 3 12.8542 3.62917 14.1125 4.8875C15.3708 6.14583 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8125 13.5625 12.6875 12.6875C13.5625 11.8125 14 10.75 14 9.5C14 8.25 13.5625 7.1875 12.6875 6.3125C11.8125 5.4375 10.75 5 9.5 5C8.25 5 7.1875 5.4375 6.3125 6.3125C5.4375 7.1875 5 8.25 5 9.5C5 10.75 5.4375 11.8125 6.3125 12.6875C7.1875 13.5625 8.25 14 9.5 14Z" fill="#1C1B1F"/>
+                        </g>
+                    </svg>
+                </button>
+            </form>
+             <div class="popular-film">
+                 <h4>人気の映画</h4>
+                 <div class="popular-film-content">
+                 {% for p in popular_film_data %}
+                    <div class="popular-film-content-item">
+                       <p><a href="{% url 'detail' p.id %}"><img src="http://image.tmdb.org/t/p/w185/{{ p.image }}"></a></p>
+                       <div><h6>{{ p.title }}</h6></div>
+                       <p>公開日 {{ p.release_date }}</p>
+                    </div>
+                 {% endfor %}
+                 </div>
+             </div>
+        </div>
+    </aside>
+</div>
+
+{% endblock %}

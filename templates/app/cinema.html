@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="result-item">
+    <div class="result-title">
+        <h3>「{{ keyword }}」の検索結果</h3>
+    </div>
+
+    <div class="container">
+    {% for cinema in cinema_data %}
+        <div class="Item">
+            <a href="{% url 'detail' cinema.id %}"><img src="http://image.tmdb.org/t/p/w342{{ cinema.image }}" alt="画像です"></a>
+            <div class="title-bottom">
+                <h4>{{ cinema.title }}</h4>
+                <h5>公開日 {{ cinema.release_date }}</h5>
+            </div>
+        </div>
+
+        {% empty %}
+            <p></p>
+            <p>該当するものはありません。</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="cinema-detail">
+    <div class="cinema-detail-box">
+        <div class="cinema-detail-image">
+            <img src="http://image.tmdb.org/t/p/w342{{ cinema_data.image }}" alt="画像です">
+        </div>
+        <div class="cinema-detail-content">
+            <h3>{{ cinema_data.title }}</h3>
+            <h6>公開日:{{ cinema_data.release_date }}</h6>
+            <div class="cinema-detail-story">
+                <h5>あらすじ</h5>
+                <p>{{ cinema_data.overview }}</p>
+            </div>
+            <div class="cinema-detail-join">
+                <form method="POST" action="{% url 'create' %}">
+                   {% csrf_token %}
+                    <input type="hidden" name="title" value="{{ cinema_data.title }}">    
+                    <input type="hidden" name="number" value="{{ cinema_data.id }}">
+                    <input type="hidden" name="image" value="{{ cinema_data.image }}">
+                    <input type="hidden" name="user" value="{{ request.user.id }}">
+                    <button type="submit" class="btn"><p>マイリストに登録する</p></button>
+                </form>
+            </div>                    
+        </div>
+    </div>
+    <div class="crew-list">
+        <h5>キャスト</h5>
+    </div>
+    <div data-simplebar style="max-width: 1084px; overflow-x: auto;">
+        <div class="cast-container">
+        
+          {% for cast in cast_datalist %}
+          <div class="cast-item"> 
+            <a href="{% url 'cast' cast.cast_id  %}"><img src="https://image.tmdb.org/t/p/w185/{{ cast.cast_image }}"></a>
+            <h5>{{ cast.cast_name }}</h5>
+            <h6>{{ cast.cast_character }}</h6>
+          </div>
+        {% endfor %}
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const scrollableElement = document.querySelector('[data-simplebar]');
+          new SimpleBar(scrollableElement, { autoHide: false });
+        });
+    </script>
+    <div class="crew-list">
+        <h5>スタッフ</h5>
+    </div>
+    <div data-simplebar style="max-width: 1084px; overflow-x: auto;">
+        <div class="cast-container">
+        {% for crew in crew_datalist %}
+          <div class="cast-item"> 
+            <img src="https://image.tmdb.org/t/p/w185/{{ crew.crew_image }}" alt="card image cap">
+            <h5>{{ crew.crew_name }}</h5>
+            <h6>{{ crew.crew_job }}</h6>
+          </div>
+        {% endfor %}
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const scrollableElement = document.querySelector('[data-simplebar]');
+          new SimpleBar(scrollableElement, { autoHide: false });
+        });
+    </script>
+    <div class="crew-list">
+        <h5>類似の映画</h5>
+    </div>
+    <div data-simplebar style="max-width: 1084px; overflow-x: auto;">
+        <div class="cast-container">
+            {% for resemble in resemble_cinemalist %}
+          <div class="cast-item"> 
+            <a href="{% url 'detail' resemble.resemble_id  %}"><img src="https://image.tmdb.org/t/p/w185/{{ resemble.resemble_image }}" alt="card image cap"></a>
+            <h5>{{ resemble.resemble_title }}</h5>
+            <h6>{{ resemble.resemble_release_date }}</h6>
+          </div>
+        {% endfor %}
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const scrollableElement = document.querySelector('[data-simplebar]');
+          new SimpleBar(scrollableElement, { autoHide: false });
+        });
+    </script>
+</div>
+
+{% endblock %}

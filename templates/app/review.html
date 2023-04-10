@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="my-review-title">
+    <div class="my-review-title-1">
+        <p>レビュー投稿</p>
+    </div>
+
+    <div class="my-review-box1">
+        <div class="review-content1">
+            <p><img src="http://image.tmdb.org/t/p/w342/{{ mymodel.image }}" alt="画像です"></p>
+        </div>
+        <div class="review-content2">
+              <form method="POST">
+                {% csrf_token %}
+                <div class="review-content2-title">
+                    <input value="{{ mymodel.title }}" readonly>
+                </div>
+                <div class="review-content2-form">
+                    <label>本文</label>
+                    <textarea name="review"></textarea>
+                </div>
+                <div class="review-content2-date">
+                    <label>鑑賞日付/時刻</label>
+                    <input type="datetime-local"name="datetime">
+                </div>
+                <div class="review-content2-btn">
+                    <button type="submit" class="btn btn-success mt-4">投稿する</button>
+                    <input type="hidden" name="cinema" value="{{ mymodel.id }}">
+                </div>              
+              </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

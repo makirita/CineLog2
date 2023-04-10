@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="text-center my-5">
+    <div class="mb-5">
+    </div>
+    <div class="row">
+        {% for cinema in cinema_data %}
+        
+        <p><img src="http://image.tmdb.org/t/p/w154/{{ cinema.image }}"></p>
+        <h5>{{ cinema.title }}</h5>
+
+        <form method="POST"action="{% url 'top-add' %}">
+            {% csrf_token %}
+            <input type="hidden" name="title" value="{{ cinema.title }}">    
+            <input type="hidden" name="number" value="{{ cinema.id }}">
+            <input type="hidden" name="image" value="{{ cinema.image }}">
+            <input type="hidden" name="user" value="{{ request.user.id }}">
+            <button type="submit" class="btn-top-review">登録する</button>
+        </form>
+
+
+        {% empty %}
+          <p>該当するものはありません。</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,167 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.structure.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sweetalert2/sweetalert2.css' %}">
+    <script src="{% static 'js/script.js'%}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+    <script src="{% static 'sweetalert2/sweetalert2.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/footerFixed.js' %}"></script>
+    
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+<style>
+footer {
+    margin-top: auto;
+    width: 100%;
+    bottom: 0;
+    background: #181717;
+    height: 60px;
+}
+
+footer p {
+    text-align: center;
+}
+
+small {
+    color: #F4F7F3;
+}
+/* ヘッダー */
+.header {
+    margin-bottom: 0;
+    width: 100%;
+    height: 88px;
+    background: #181717;
+
+}
+
+.header .logo {
+    color: #F4F7F3;
+    height: 48px;
+    width:100%;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.top-page{
+    width:396px;
+    height:800px;
+    margin:0 auto;
+    margin-top:96px;
+    margin-bottom:50px;
+}
+.top-page-main{
+    text-align: center;
+
+}
+.top-page-main h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    
+}
+.top-page-main h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top:16px;
+    line-height: 27.2px;
+}
+.top-page-main p{
+    width:400px;
+    height:400px;
+}
+
+.top-page-main img{
+    width:396px;
+    height:396px;
+}
+.login-form{
+    width:396px;
+    text-align: center;
+}
+.login-form-accounts .btn{
+    display: block;
+    margin:0 0 0 auto;
+    border:1px solid #181717;
+    background: #87FF5C;
+}
+.login-form-create{
+    margin-top:10px;
+    font-size:13px;
+    text-align: right;
+}
+.login-form-create span{
+    color:blue;
+
+}
+
+.social-login p {
+    margin: 0 auto;
+    color:#F4F7F3;
+    background: #181717;
+    width:360px;
+    height:60px;
+    padding-top:16.5px;
+}
+@media (max-width:390px) {
+}
+</style>
+
+    
+ 
+
+    <title>CineLog</title>
+</head>
+
+<header class="header">
+    <div class="logo">CineLog</div>
+</header>
+<div class="top-page">
+    <div class="top-page-main">
+        <h1>CineLogへようこそ🎉</h1>
+        <h3>あなたの映画鑑賞の記録(ログ)を残しましょう！</h3>
+        <p><img src="{% static 'accounts/images/cinema.png' %}"></p>
+    </div>
+    <div class="login-form">
+        <div class="login-form-accounts">
+            <form method="POST">
+                {% csrf_token %}
+                {% for error in form.errors.values %}
+                {{ error }}
+                {% endfor %}
+                <h4>アカウントログイン</h4>
+                <p><label>ユーザーID</label><input class="form" name="username"></p>
+                <p><label>パスワード</label><input type="password" name="password"></p>
+                <button type="submit" class="btn">ログインする</button>
+            </form>
+            <div class="login-form-create">
+                <p>会員登録は<a href="{% url 'accounts:signup' %}"><span>こちら</span></a></p>
+            </div>
+        </div>
+        <div class="social-login">
+            <h4>ソーシャルログイン</h4>
+            <div class="social-login-icon">
+                <p><img src="{% static 'accounts/images/icn.png' %}"><a href="{% url 'social:begin' 'google-oauth2' %}">Googleログイン</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <p><small>Copyright &copy; 2023 Hiroki Sakurai</small></p>
+    <p><small>CineLog</small></p>
+</footer>
+

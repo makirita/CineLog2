@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+
+
+<article class="article2">
+    <h3>{{ cinema.title }}のレビュー</h3>
+    <div class="timeline">
+    {% for review in reviews %}
+        <div class="review2">
+            <div class="left2">
+                 <p><img src="http://image.tmdb.org/t/p/w342/{{ review.cinema.image }}"></p>
+                 <p class="title">{{ review.cinema }}</p>
+            </div>
+                <div class="right2">    
+                     <p>{{ review.review|linebreaksbr }}<br></p>
+                     <p class="date">{{ review.datetime|date:"Y-m-d H:i" }}</p>
+                     <p class="update"><a href="{% url 'review_update' review.id cinema.id %}">編集する</a></p>
+                </div>
+        </div>
+    {% endfor %}
+    </div>
+    
+</article>
+
+
+
+{% endblock %}

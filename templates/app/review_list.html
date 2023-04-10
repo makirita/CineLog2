@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<h2>レビュー一覧</h2>
+
+{% for review in reviews %}
+<p>{{ review.cinema }}</p>
+<p>{{ review.review }}</p>
+<p>{{ review.datetime }}</p>
+{% endfor %}
+
+{% endblock %}

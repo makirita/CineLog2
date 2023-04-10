@@ -1,0 +1,192 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.structure.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sweetalert2/sweetalert2.css' %}">
+    <script src="{% static 'js/script.js'%}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+    <script src="{% static 'sweetalert2/sweetalert2.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/footerFixed.js' %}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+<style>
+footer {
+    margin-top: auto;
+    width: 100%;
+    bottom: 0;
+    background: #181717;
+    height: 60px;
+}
+
+footer p {
+    text-align: center;
+}
+
+small {
+    color: #F4F7F3;
+}
+/* ヘッダー */
+.header {
+    margin-bottom: 0;
+    width: 100%;
+    height: 88px;
+    background: #181717;
+
+}
+
+.header .logo {
+    color: #FFFFFF;
+    height: 48px;
+    width:100%;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.create-account{
+    width:auto;
+    height:auto;
+}
+.create-account form{
+    width:auto;
+
+}
+.create-account-form{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width:500px;
+    margin-top:80px;
+    background: #FFFFFF;
+}
+.create-account input{
+    border:solid 2px #181717;
+    line-height: 20px;
+    margin-bottom:10px;
+    display: flex;
+    flex-direction: row;
+    width:500px;
+}
+.create-account-title{
+    font-size: 32px;
+    text-align: center;
+}
+.create-account-form button{
+    margin:0;
+    background:#87FF5C;
+    border: solid 1px #181717;
+    margin-bottom:10px;
+}
+.login-url{
+    border:solid 1px #181717;
+    width:100px;
+    height:30px;
+}
+
+@media (max-width:390px) {
+    .create-account{
+        width:auto;
+        height:auto;
+    }
+.create-account form{
+        width:auto;
+
+    }
+.create-account-form{
+        margin: 0 auto;
+        display: block;
+        flex-direction: row;
+        width:auto;
+        margin-top:80px;
+        background: #FFFFFF;
+    }
+.create-account input{
+        border:solid 2px #181717;
+        line-height: 20px;
+        margin-bottom:10px;
+        display: flex;
+        flex-direction: row;
+        width:auto;
+        margin: 0 auto;
+    }
+.create-account-title{
+        font-size: 32px;
+        text-align: center;
+    }
+.create-account-form button{
+        margin:0;
+        background:#87FF5C;
+        border: solid 1px #181717;
+    }
+.create-account-form1{
+        text-align: center;
+    }
+.login-url{
+        margin:0;
+        border:solid 1px #181717;
+        height:30px;
+        text-align: center;
+        width: 93px;
+        margin: 0 auto;
+    }
+}
+
+</style>
+
+    
+ 
+
+    <title>CineLog</title>
+</head>
+
+<header class="header">
+    <div class="logo">CineLog</div>
+</header>
+
+<div class="create-account">
+    <div class="create-account-form">
+        <form method="POST">
+            <div class='create-account-title'><p>アカウント作成</p></div>
+            {% csrf_token %}
+            <div class='create-account-form1'>
+                <label>ユーザーID</label>
+                <input type="text" name="username" placeholder="ユーザーIDを入力">
+                <label>パスワード</label>
+                <input type="password" name="password1" placeholder="パスワードを入力">
+                <label>パスワード確認用</label>
+
+                <input type="password" name="password2" placeholder="パスワード確認用">
+                <p>※パスワードは8文字以上で入力してください</p>
+                {% if form.erros %}
+                <p>利用できないユーザーIDやパスワードの可能性があります</p>
+                {% endif %}
+                <button type="submit">アカウント作成</button>
+                <div class="login-url">
+                    <p><a href='{% url "accounts:login" %}'>ログインページへ</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer id="footer">
+    <p><small>Copyright &copy; 2023 Hiroki Sakurai</small></p>
+    <p><small>CineLog</small></p>
+</footer>
+

@@ -1,0 +1,9 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<form method='POST'>
+    {% csrf_token %}
+    <button type="submit">{{ object.title }}を削除する</button>
+</form>
+
+{% endblock %}
