@@ -3,3 +3,6 @@ mysqlclient
 djangorestframework
 django-widget-tweaks
 requests
+social-auth-app-django
+pillow
+python-dotenv
