@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['www.cine-log.com']
+ALLOWED_HOSTS = ['www.cine-log.com','*']
 
 CSRF_TRUSTED_ORIGINS    = [ "https://www.cine-log.com" ]
 
@@ -99,7 +99,7 @@ DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'c_db',
+        'NAME': 'c-db',
         'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': os.getenv('DATABASE_HOST'),
