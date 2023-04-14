@@ -20,7 +20,9 @@ SECRET_KEY = os.getenv('SECRET')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.cine-log.com']
+
+CSRF_TRUSTED_ORIGINS    = [ "https://www.cine-log.com" ]
 
 # Application definition
 
