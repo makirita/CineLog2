@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv('SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cine-log.com']
+ALLOWED_HOSTS = ['www.cine-log.com']
 
 
 # Application definition
