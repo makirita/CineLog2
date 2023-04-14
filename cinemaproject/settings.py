@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['www.cine-log.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
