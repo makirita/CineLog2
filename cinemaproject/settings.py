@@ -146,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/var/www/gym/cinemaproject/static'
+STATIC_ROOT = '/path/to/static/files/'
 
 MEDIA_URL = '/media/'
 
