@@ -7,7 +7,7 @@
             <h3>投稿したレビュー</h3>
         <div class="write-button">
             <p><a href="{% url 'top-review'%}">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="https://www.w3.org/2000/svg">
                     <mask id="mask0_114_152" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
                     <rect width="32" height="32" fill="#D9D9D9"/>
                     </mask>
@@ -21,7 +21,7 @@
             {% for review in reviews %}
                 <div class="review">
                     <div class="left">
-                         <p><img src="http://image.tmdb.org/t/p/w342/{{ review.cinema.image }}"></p>
+                         <p><img src="https://image.tmdb.org/t/p/w342/{{ review.cinema.image }}"></p>
                          <p class="title">{{ review.cinema }}</p>
                     </div>
                         <div class="right">    
@@ -40,7 +40,7 @@
             {% csrf_token %}
                 <input class="input" type="text" name="title" id="id_title" placeholder="タイトルを入力">
                 <button class="btn" type="submit" aria-label="検索">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg">
                         <mask id="mask0_15_70" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                         <rect width="24" height="24" fill="#D9D9D9"/>
                         </mask>
@@ -55,7 +55,7 @@
                  <div class="popular-film-content">
                  {% for p in popular_film_data %}
                     <div class="popular-film-content-item">
-                       <p><a href="{% url 'detail' p.id %}"><img src="http://image.tmdb.org/t/p/w185/{{ p.image }}"></a></p>
+                       <p><a href="{% url 'detail' p.id %}"><img src="https://image.tmdb.org/t/p/w185/{{ p.image }}"></a></p>
                        <div><h6>{{ p.title }}</h6></div>
                        <p>公開日 {{ p.release_date }}</p>
                     </div>
