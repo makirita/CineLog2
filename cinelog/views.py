@@ -211,7 +211,7 @@ class DetailCinemaView(LoginRequiredMixin, DetailView):
             cast_name = item['name']
             cast_image = item['profile_path']
             if cast_image:
-                cast_image = 'https://image.tmdb.org/t/p/w154/' + cast_image
+                cast_image = 'https://image.tmdb.org/t/p/w185/' + cast_image
             else:
                 cast_image = '/static/cinelog/148959.jpg'
 
