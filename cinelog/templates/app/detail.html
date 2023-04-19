@@ -34,7 +34,7 @@
         
           {% for cast in cast_datalist %}
           <div class="cast-item"> 
-            <a href="{% url 'cast' cast.cast_id  %}"><img src="https://image.tmdb.org/t/p/w185/{{ cast.cast_image }}"></a>
+            <a href="{% url 'cast' cast.cast_id  %}"><img src="{{ cast.cast_image }}" alt="Cast Image"></a>
             <h5>{{ cast.cast_name }}</h5>
             <h6>{{ cast.cast_character }}</h6>
           </div>
