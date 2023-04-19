@@ -47,7 +47,6 @@ small {
     justify-content: space-between;
     align-items: center;
     padding: 24px 48px;
-    gap: 935px;
     margin-bottom: 0;
     width: 100%;
     height: 88px;
@@ -697,7 +696,6 @@ p .date {
     margin-bottom:67px;
 }
 .cinema-detail-join .btn{
-    width:178px;
     height:48px;
     background: #87FF5C;
 }
@@ -1447,7 +1445,7 @@ p .date {
     
     }
     .cinema-detail-image{
-        width:320px;
+        width:100%;
         height:480px;
         display: block;
         margin: 0 auto;
