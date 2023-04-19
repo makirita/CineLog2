@@ -54,7 +54,7 @@
         <div class="cast-container">
         {% for crew in crew_datalist %}
           <div class="cast-item"> 
-            <img src="https://image.tmdb.org/t/p/w185/{{ crew.crew_image }}" alt="card image cap">
+            <img src="{{ crew.crew_image }}" alt="Cast-Image">
             <h5>{{ crew.crew_name }}</h5>
             <h6>{{ crew.crew_job }}</h6>
           </div>
