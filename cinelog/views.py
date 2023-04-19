@@ -213,7 +213,7 @@ class DetailCinemaView(LoginRequiredMixin, DetailView):
             if cast_image:
                 cast_image = 'https://image.tmdb.org/t/p/w185/' + cast_image
             else:
-                cast_image = '/static/cinelog/148959.jpg'
+                cast_image = 'https://7869-7973-8327-01.s3.amazonaws.com/static/cinelog/148959.jpg'
 
             cast_character = item['character']
             cast_id = item['id']
