@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'cinelog.apps.CinelogConfig',
     'accounts.apps.AccountsConfig',
     'social_django',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -89,6 +90,20 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'cinelog/static')]
+AWS_ACCESS_KEY_ID = os.getenv('AWS_KEY')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET')
+AWS_STORAGE_BUCKET_NAME = '7869-7973-8327-01'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+AWS_DEFAULT_ACL = None
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATIFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_ROOT = BASE_DIR / 'static'
 
 
 
@@ -144,10 +159,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATIC_ROOT = BASE_DIR/ 'static'
-
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -158,4 +169,3 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATICFILE_DIRS =[os.path.join(BASE_DIR,'static/')]
