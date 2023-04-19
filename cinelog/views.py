@@ -238,7 +238,7 @@ class DetailCinemaView(LoginRequiredMixin, DetailView):
             if crew_image:
                 crew_image = 'http://image.tmdb.org/t/p/w154/' + crew_image
             else:
-                crew_image = '/static/searchapp/148959.jpg'
+                crew_image = 'https://7869-7973-8327-01.s3.amazonaws.com/static/cinelog/148959.jpg'
 
             crew_job = item['job']
             crew_id = item['id']
