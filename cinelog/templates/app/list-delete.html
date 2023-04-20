@@ -5,10 +5,6 @@
     {% csrf_token %}
     <input type="submit" value="削除する">
 </form>
-<!-- <form method="POST" action="{%url 'create_delete' object.id %}">
-    {% csrf_token %}
-   <input type="hidden" name="id" value="{{ i.id }}">
-   <button type="submit">{{ object.title }}を削除する</button>
-</form> -->
+
 <a href="{% url 'list' %}" class="btn btn-secondary">キャンセル</a>
 {% endblock %}
