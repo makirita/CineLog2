@@ -1,10 +1,14 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-<form method='POST'>
-    {% csrf_token %}
-    <input type="submit" value="削除する">
-</form>
+<div class="list-delete">
+    
+    <img src="https://image.tmdb.org/t/p/w342/{{ object.image }}">
+    <h4>{{ object.title }}</h4>
+    <form method='POST'>
+        {% csrf_token %}
+        <input type="submit" value="削除する">
+    </form>
 
-<a href="{% url 'list' %}" class="btn btn-secondary">キャンセル</a>
+    <a href="{% url 'list' %}" class="btn btn-secondary">リストに戻る</a>
 {% endblock %}
