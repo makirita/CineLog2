@@ -40,10 +40,10 @@
       <a href="{% url 'detail' i.number %}"><img src="https://image.tmdb.org/t/p/w342/{{ i.image }}" alt="画像です"></a>
       
         
-      <form method="POST" action="{%url 'create_delete' i.id %}" id="delete-form-{{ i.id }}">
+      <form method="POST" action="{%url 'create_delete' i.number %}" id="delete-form-{{ i.number }}">
         {% csrf_token %}
-       <input type="hidden" name="id" value="{{ i.id }}">
-       <button type="button" class="delete-btn" id='delete-button-{{ i.id }}'>
+       <input type="hidden" name="id" value="{{ i.number }}">
+       <button type="button" class="delete-btn" id='delete-button-{{ i.number }}'>
           <div class="svg-position">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg">
               <mask id="mask0_120_756" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -55,8 +55,8 @@
             </svg>
           </div>
         <script>
-          var deleteButton = document.getElementById('delete-button-{{ i.id }}');
-          var deleteForm = document.getElementById('delete-form-{{ i.id }}');
+          var deleteButton = document.getElementById('delete-button-{{ i.number }}');
+          var deleteForm = document.getElementById('delete-form-{{ i.number }}');
 
           function showDialog(){
             Swal.fire({
