@@ -80,6 +80,16 @@
               }
             });
           }
+
+          if (window.innerWidth > 390){
+            deleteButton.addEventListener('click',showDialog);
+          }else{
+            deleteButton.addEventListener('click',function () {
+              if (confirm('本当に外しますか？\n呟きも削除されてしまいます。')) {
+                deleteForm.submit();
+            }
+        });
+    }
         </script>
        </button>
       </form>
