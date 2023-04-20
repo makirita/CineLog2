@@ -368,8 +368,14 @@ class CinemaListView(LoginRequiredMixin, ListView):
 
 # マイリストから外すview
 class MyListDeleteView(LoginRequiredMixin, DeleteView):
+    template_name = 'app/list-delete.html'
     model = MyModel
     success_url = reverse_lazy('list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
 
     def delete(self, request, *args, **kwargs):
         messages.success(request, 'リストから外しました。')

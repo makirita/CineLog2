@@ -3,7 +3,9 @@
 {% block content %}
 <form method='POST'>
     {% csrf_token %}
-    <button type="submit">{{ object.title }}を削除する</button>
+    <h3>{{ object.title }}を削除しますか？</h3>
+    <button type="submit" class="btn btn-danger">はい</button>
+    <a href="{% url 'list' %}" class="btn btn-secondary">キャンセル</a>
 </form>
 
 {% endblock %}
