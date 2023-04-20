@@ -1,10 +1,14 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-<form method='POST'>
+<!-- <form method='POST'>
     {% csrf_token %}
     <button type="submit">{{ object.title }}を削除する</button>
 </form>
-<a href="{% url 'list' %}" class="btn btn-secondary">キャンセル</a>
-
+<a href="{% url 'list' %}" class="btn btn-secondary">キャンセル</a> -->
+<form method="POST" action="{%url 'create_delete' object.id %}">
+    {% csrf_token %}
+   <input type="hidden" name="id" value="{{ i.id }}">
+   <button type="submit">{{ object.title }}を削除する</button>
+</form>
 {% endblock %}
