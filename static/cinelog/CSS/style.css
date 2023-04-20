@@ -775,6 +775,13 @@ p .date {
     font-weight: 700;
 }
 /* リスト削除ページ */
+.list-delete{
+    width: 100%;
+}
+.list-delete-block{
+    margin: 0 auto;
+}
+
 
 
 

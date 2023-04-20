@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="list-delete">
-    
-    <img src="https://image.tmdb.org/t/p/w342/{{ object.image }}">
-    <h4>{{ object.title }}</h4>
-    <form method='POST'>
-        {% csrf_token %}
-        <input type="submit" value="削除する">
-    </form>
-
-    <a href="{% url 'list' %}" class="btn btn-secondary">リストに戻る</a>
+    <div class="list-delete-block">
+        <img src="https://image.tmdb.org/t/p/w342/{{ object.image }}">
+        <h4>{{ object.title }}</h4>
+        <form method='POST'>
+            {% csrf_token %}
+            <input type="submit" value="削除する" class="btn-delete">
+        </form>
+        <a href="{% url 'list' %}">リストに戻る</a>
+    </div>
 {% endblock %}
