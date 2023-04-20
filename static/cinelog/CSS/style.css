@@ -353,10 +353,6 @@ aside {
     width:244px;
     height:366px;
 }
-.delete-btn {
-    position: relative;
-
-}
 .svg-position{
     position: relative;
 }
@@ -1137,10 +1133,7 @@ p .date {
     
         
     }
-    .delete-btn {
-        position: relative;
-    
-    }
+
     .svg-position{
         position: relative;
     }
