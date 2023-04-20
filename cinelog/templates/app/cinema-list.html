@@ -40,7 +40,7 @@
       <a href="{% url 'detail' i.number %}"><img src="https://image.tmdb.org/t/p/w342/{{ i.image }}" alt="画像です"></a>
       
         
-      <form method="POST" action="{%url 'create_delete' i.number %}" id="delete-form-{{ i.number }}">
+      <form method="POST" action="{%url 'create_delete' i.id %}" id="delete-form-{{ i.number }}">
         {% csrf_token %}
        <input type="hidden" name="id" value="{{ i.number }}">
        <button type="button" class="delete-btn" id='delete-button-{{ i.number }}'>
