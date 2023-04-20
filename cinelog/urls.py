@@ -25,7 +25,7 @@ urlpatterns = [
     #キャスト詳細表示
     path('create/', views.MyCreateView.as_view(),name='create'),
     #マイリスト登録(ボタンを押すと登録される)
-    path('create/<int:id>/delete', views.MyListDeleteView.as_view(),name='create_delete'),
+    path('create/<int:pk>/delete', views.MyListDeleteView.as_view(),name='create_delete'),
     #マイリストから登録を外す
     path('list/', views.CinemaListView.as_view(),name='list'),
     #映画リストを表示
