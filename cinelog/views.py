@@ -374,6 +374,8 @@ class MyListDeleteView(LoginRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        self.object = form.save(commit=False)
+        self.object.delete()
         messages.success(self.request, 'リストから外しました。')
         return super().form_valid(form)
 
