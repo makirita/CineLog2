@@ -54,43 +54,7 @@
               </g>
             </svg>
           </div>
-        <script>
-          var deleteButton = document.getElementById('delete-button-{{ i.number }}');
-          var deleteForm = document.getElementById('delete-form-{{ i.number }}');
 
-          function showDialog(){
-            Swal.fire({
-              title: '本当に外しますか？',
-              text: "呟きも削除されてしまいます。",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, delete it!',
-            }).then((result) => {
-              if (result.value) {
-                Swal.fire({
-                  title: '完了しました',
-                  confirmButtonText: 'Yes, delete it!',
-                }).then((result) => {
-                  if (result.value) {
-                    deleteForm.submit();
-                  }
-                });
-              }
-            });
-          }
-
-          if (window.innerWidth > 390){
-            deleteButton.addEventListener('click',showDialog);
-          }else{
-            deleteButton.addEventListener('click',function () {
-              if (confirm('本当に外しますか？\n呟きも削除されてしまいます。')) {
-                deleteForm.submit();
-               }
-            });
-          }
-        </script>
        </button>
       </form>
     </div>
