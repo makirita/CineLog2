@@ -372,11 +372,6 @@ class MyListDeleteView(LoginRequiredMixin, DeleteView):
     model = MyModel
     success_url = reverse_lazy('list')
 
-    def delete(self, request, *args, **kwargs):
-        messages.success(request,'リストから外しました。')
-        return super().delete(request, *args, **kwargs)
-
-
 # レビューを作るview
 class CinemaReviewView(LoginRequiredMixin, CreateView):  
     model = Review
