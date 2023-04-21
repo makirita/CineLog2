@@ -792,6 +792,10 @@ label.can {
     text-align: center;
     font-size: small;
 }
+.btn-delete {
+    color: red;
+    border: solid 2px black;
+}
 
 
 
@@ -1582,6 +1586,23 @@ label.can {
     .cela-list h5{
         font-size: 18px;
         font-weight: 700;
+    }
+    /* リスト削除ページ */
+    .list-delete{
+        width: 100%;
+        margin-top: 100px;
+    }
+    .list-delete-block{
+        margin: 0 auto;
+        width:200px;
+    }
+    .list-delete-block h4{
+        text-align: center;
+        font-size: small;
+    }
+    .btn-delete {
+        color: red;
+        border: solid 2px black;
     }
         
 
