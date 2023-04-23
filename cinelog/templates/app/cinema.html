@@ -10,7 +10,7 @@
     <div class="container">
     {% for cinema in cinema_data %}
         <div class="Item">
-            <a href="{% url 'detail' cinema.id %}"><img src="https://image.tmdb.org/t/p/w342{{ cinema.image }}" alt="画像です"></a>
+            <a href="{% url 'detail' cinema.id %}"><img src="{{ cinema.image }}" alt="画像です"></a>
             <div class="title-bottom">
                 <h4>{{ cinema.title }}</h4>
                 <h5>公開日 {{ cinema.release_date }}</h5>
