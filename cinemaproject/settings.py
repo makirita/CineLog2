@@ -176,4 +176,4 @@ SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
-CSP_STYLE_SRC =("'self'","'nonce'","'unsafe-inline'","'unsafe-eval'","'static'")
+CSP_STYLE_SRC =("'self'",'7869-7973-8327-01.s3.amazonaws.com/cinelog/css/style.css')
