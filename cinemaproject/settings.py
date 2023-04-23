@@ -176,4 +176,4 @@ SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
-CSP_STYLE_SRC_ELEM =("'self'",'www.cine-log.com')
+CSP_STYLE_SRC_ELEM =("'self'",'unsafe-inline' ,"www.cine-log.com")
