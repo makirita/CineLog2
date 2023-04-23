@@ -257,6 +257,10 @@ class DetailCinemaView(LoginRequiredMixin, DetailView):
                 break
             resemble_title = item['title']
             resemble_image = item['poster_path']
+            if resemble_image:
+                resemble_image = 'https://image.tmdb.org/t/p/w342/' + resemble_image
+            else:
+                resemble_image = 'https://7869-7973-8327-01.s3.amazonaws.com/static/cinelog/148959.jpg'
             resemble_release_date = item['release_date']
             resemble_id = item['id']
 

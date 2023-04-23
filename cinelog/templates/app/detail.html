@@ -73,8 +73,9 @@
     <div data-simplebar style="max-width: 1084px; overflow-x: auto;">
         <div class="cast-container">
             {% for resemble in resemble_cinemalist %}
-          <div class="cast-item"> 
-            <a href="{% url 'detail' resemble.resemble_id  %}"><img src="https://image.tmdb.org/t/p/w185/{{ resemble.resemble_image }}" alt="card image cap"></a>
+          <div class="cast-item">
+            <a href="{% url 'cast' cast.cast_id  %}"><img src="{{ cast.cast_image }}" alt="Cast Image"></a>
+            <a href="{% url 'detail' resemble.resemble_id  %}"><img src="{{ resemble.resemble_image }}" alt="card image cap"></a>
             <h5>{{ resemble.resemble_title }}</h5>
             <h6>{{ resemble.resemble_release_date }}</h6>
           </div>

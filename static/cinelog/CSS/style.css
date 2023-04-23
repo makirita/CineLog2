@@ -278,7 +278,7 @@ aside {
 }
 .title-bottom{
     background: #FFFFFF;
-    height:60px;
+    height:auto;
 }
 .title-bottom h4{
     font-size: 18px;
@@ -1112,7 +1112,7 @@ label.can {
     }
     .title-bottom{
         background: #FFFFFF;
-        height:60px;
+        height:auto;
         margin-bottom:20px;
     }
     /* マイリストページ */
