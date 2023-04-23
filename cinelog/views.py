@@ -155,10 +155,10 @@ class CinemaResultView(LoginRequiredMixin,ListView):
             for item in items:
                 title = item['title']
                 image = item['poster_path']
-            if image:
-                image = 'https://image.tmdb.org/t/p/w342/' + image
-            else:
-                image = 'https://7869-7973-8327-01.s3.amazonaws.com/static/cinelog/148959.jpg'
+                if image:
+                    image = 'https://image.tmdb.org/t/p/w342/' + image
+                else:
+                    image = 'https://7869-7973-8327-01.s3.amazonaws.com/static/cinelog/148959.jpg'
 
                 release_date = item['release_date']
                 id = item['id']
