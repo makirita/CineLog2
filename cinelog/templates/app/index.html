@@ -55,7 +55,7 @@
                  <div class="popular-film-content">
                  {% for p in popular_film_data %}
                     <div class="popular-film-content-item">
-                       <p><a href="{% url 'detail' p.id %}"><img src="https://image.tmdb.org/t/p/w185/{{ p.image }}"></a></p>
+                       <p><a href="{% url 'detail' p.id %}"><img src="{{ p.image }}"></a></p>
                        <div><h6>{{ p.title }}</h6></div>
                        <p>公開日 {{ p.release_date }}</p>
                     </div>

@@ -113,7 +113,7 @@ class IndexListView(LoginRequiredMixin,ListView):
             title = p["title"]
             image = p['poster_path']
             if image:
-                image = 'https://image.tmdb.org/t/p/w342/' + image
+                image = 'https://image.tmdb.org/t/p/w185/' + image
             else:
                 image = 'https://7869-7973-8327-01.s3.amazonaws.com/static/cinelog/148959.jpg'
 
