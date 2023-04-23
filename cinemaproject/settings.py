@@ -176,4 +176,4 @@ SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
-CSP_STYLE_SRC =("'self'","'unsafe-inline'","'unsafe-eval'","'static'")
+CSP_STYLE_SRC =("'self'","'nonce'","'unsafe-inline'","'unsafe-eval'","'static'")
