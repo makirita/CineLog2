@@ -656,8 +656,8 @@ label.can {
 }
 /* 映画詳細 */
 .cinema-detail{
-    width:1084px;
-    height:1848px;
+    width:1038px;
+    height:100%;
     margin: 0 auto;
     margin-bottom:80px;
     margin-top: 100px;
@@ -666,7 +666,7 @@ label.can {
     display:flex;
     justify-content: flex-start;
     width:1038px;
-    height:480px;
+    height:100%;
     margin-bottom:80px;
 
 }
@@ -677,7 +677,7 @@ label.can {
 .cinema-detail-content{
     margin-left:56px;
     width:662px;
-    height:480px;
+    height:auto;
 }
 .cinema-detail-content h3{
     font-size: 24px;
