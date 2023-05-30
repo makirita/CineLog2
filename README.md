@@ -90,5 +90,6 @@ TMDbのAPIを使い、映画を検索することができ、マイリストに�
 
 * Hiroki Sakurai 
   - sa11kurarudan11@gmail.com
-* designed by 
+* designed by @saku_13mol
+
 
