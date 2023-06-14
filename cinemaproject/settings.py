@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'cinelog.apps.CinelogConfig',
     'accounts.apps.AccountsConfig',
     'social_django',
-    'storages',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +113,7 @@ DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'c_db',
+        'NAME': 'c-db',
         'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': os.getenv('DATABASE_HOST'),
