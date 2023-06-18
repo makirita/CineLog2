@@ -14,7 +14,7 @@ services:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: ROOTPASS
-      MYSQL_DATABASE: c-db
+      MYSQL_DATABASE: c_db
       MYSQL_USER: hiro
       MYSQL_PASSWORD: SQL_PASS
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
