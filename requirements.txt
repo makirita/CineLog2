@@ -6,3 +6,4 @@ requests
 social-auth-app-django
 pillow
 python-dotenv
+i

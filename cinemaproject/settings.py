@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET')
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['www.cine-log.com','*']
+ALLOWED_HOSTS = ["cine-log.com",'*']
 
 CSRF_TRUSTED_ORIGINS    = [ "https://www.cine-log.com" ]
 
@@ -113,11 +113,11 @@ DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'c-db',
+        'NAME': os.getenv('DATABASE_NAME'),
         'USER': os.getenv('DATABASE_USER'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': 'db',
-        'PORT':'3306',
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
          'OPTIONS': {
             'charset': 'utf8mb4',
         },
@@ -174,4 +174,5 @@ SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
-
+SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
+SESSION_COOKIE_SECURE = False

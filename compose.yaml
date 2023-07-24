@@ -13,10 +13,12 @@ services:
  db:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: ROOTPASS
-      MYSQL_DATABASE: c-db
-      MYSQL_USER: hiro
-      MYSQL_PASSWORD: SQL_PASS
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_HOST: ${DATABASE_HOST}
+      MYSQL_PORT: ${DATABASE_PORT}
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 volumes:
